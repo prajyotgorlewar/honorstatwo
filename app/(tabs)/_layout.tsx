@@ -4,6 +4,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import Octicons from '@expo/vector-icons/Octicons';
 import Ionicons from '@expo/vector-icons/Ionicons';
+
 import React from 'react';
 
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
@@ -60,7 +61,7 @@ export default function TabLayout() {
             options={{
                 title: 'Profile',
                 tabBarIcon: ({ color, focused }) => (
-                    <Octicons name="person" size={24} color="black" />
+                  <Ionicons name="person-outline" size={24} color="black" />
                 ),
             }}
         />
