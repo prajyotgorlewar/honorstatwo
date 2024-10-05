@@ -5,17 +5,25 @@ import AntDesign from '@expo/vector-icons/AntDesign';
 import Feather from '@expo/vector-icons/Feather';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { useRouter } from 'expo-router';
+
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <ScrollView style={styles.container}>
       {/* Top Bar and Search */}
       <View style={styles.topBar}>
         <Text style={styles.brand}>Sport Shoes</Text>
         <View style={styles.iconsContainer}>
-          <AntDesign name="hearto" size={24} color="black" style={styles.icon} />
+          <TouchableOpacity onPress={() => router.push('/wishlist')}>
+            <AntDesign name="hearto" size={24} color="black" style={styles.icon} />
+          </TouchableOpacity>
           <Feather name="shopping-cart" size={24} color="black" style={styles.icon} />
-          <Ionicons name="notifications-outline" size={24} color="black" style={styles.icon} />
+          <TouchableOpacity onPress={() => router.push('/notification')}>
+            <Ionicons name="notifications-outline" size={24} color="black" style={styles.icon} />
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -45,10 +53,10 @@ export default function HomeScreen() {
       <View style={styles.categoriesSection}>
         <Text style={styles.sectionTitle}>SHOP BY CATEGORY</Text>
         <View style={styles.categories}>
-        <View style={styles.categoryBox}>
-  <FontAwesome5 name="shoe-prints" size={24} color="black" style={styles.rotatedIcon} />
-  <Text style={styles.categoryText}>FOOTWEAR</Text>
-</View>
+          <View style={styles.categoryBox}>
+            <FontAwesome5 name="shoe-prints" size={24} color="black" style={styles.rotatedIcon} />
+            <Text style={styles.categoryText}>FOOTWEAR</Text>
+          </View>
 
           <View style={styles.categoryBox}>
             <MaterialCommunityIcons name="bag-personal" size={24} color="black" />
@@ -72,7 +80,7 @@ export default function HomeScreen() {
             <Text style={styles.productPrice}>Rp200.000</Text>
           </View>
           <View style={styles.productCard}>
-            <Image source={require('@/assets/images/product1.png')} style={styles.productImage} />
+            <Image source={require('@/assets/images/product2.png')} style={styles.productImage} />
             <Text style={styles.productName}>Aero Sport Infinity Max</Text>
             <Text style={styles.productCategory}>Footwear</Text>
             <Text style={styles.productPrice}>Rp450.000</Text>
@@ -80,20 +88,20 @@ export default function HomeScreen() {
         </View>
         <View style={styles.products}>
           <View style={styles.productCard}>
-            <Image source={require('@/assets/images/product1.png')} style={styles.productImage} />
+            <Image source={require('@/assets/images/product3.png')} style={styles.productImage} />
             <Text style={styles.productName}>Sport+ Runner Blue Edition</Text>
             <Text style={styles.productCategory}>Footwear</Text>
             <Text style={styles.productPrice}>Rp250.000</Text>
           </View>
           <View style={styles.productCard}>
-            <Image source={require('@/assets/images/product1.png')} style={styles.productImage} />
+            <Image source={require('@/assets/images/product4.png')} style={styles.productImage} />
             <Text style={styles.productName}>Sport+ Bag</Text>
             <Text style={styles.productCategory}>Bag</Text>
             <Text style={styles.productPrice}>Rp350.000</Text>
           </View>
         </View>
       </View>
-    </ScrollView>
+    </ScrollView >
   );
 }
 
@@ -112,9 +120,9 @@ const styles = StyleSheet.create({
   brand: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#FF4500',
-    fontStyle: 'italic', // Add this line to make the font italic
-},
+    color: '#F26522',
+    fontStyle: 'italic',
+  },
 
   iconsContainer: {
     flexDirection: 'row',
@@ -137,7 +145,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   searchButton: {
-    backgroundColor: '#FF4500',
+    backgroundColor: '#F26522',
     borderRadius: 10,
     padding: 8,
   },
@@ -162,7 +170,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   topUpButton: {
-    backgroundColor: '#FF4500',
+    backgroundColor: '#F26522',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 10,
@@ -192,7 +200,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   rotatedIcon: {
-    transform: [{ rotate: '-90deg' }],  // Rotate only the icon by -90 degrees
+    transform: [{ rotate: '-90deg' }],
   },
   categoryText: {
     marginTop: 5,
@@ -216,15 +224,14 @@ const styles = StyleSheet.create({
   productImage: {
     width: '100%',
     height: 150,
-    
+
     borderRadius: 10,
   },
   productName: {
-      // Apply Roboto Condensed Bold font
     fontSize: 16,
-    textTransform: 'uppercase',  // Make the text uppercase to match Bebas Neue style
+    textTransform: 'uppercase',
     marginVertical: 5,
-    fontFamily: 'Roboto Condensed Bold',  // Apply Roboto Condensed Bold font
+    fontFamily: 'Roboto Condensed Bold',
   },
   productCategory: {
     fontSize: 12,
@@ -232,7 +239,9 @@ const styles = StyleSheet.create({
   },
   productPrice: {
     fontSize: 16,
-    color: '#FF4500',
+    color: '#F26522',
     fontWeight: 'bold',
   },
 });
+
+

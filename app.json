@@ -27,7 +27,13 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      {
+        "initialRouteName": "/home",
+        "screenOptions": {
+          "headerShown": false
+        }
+      }
     ],
     "experiments": {
       "typedRoutes": true
